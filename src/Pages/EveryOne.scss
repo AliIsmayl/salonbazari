@@ -241,7 +241,7 @@ $glow: rgba(192, 51, 176, 0.4);
 
   &__progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, $pd, $p, lighten($p, 12%));
+    // background: linear-gradient(90deg, $pd, $p, lighten($p, 12%));
     border-radius: 10px;
     box-shadow: 0 0 10px $glow;
     background-size: 200% 100%;
