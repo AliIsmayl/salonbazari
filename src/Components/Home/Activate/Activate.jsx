@@ -53,6 +53,7 @@ function useCountUp(target, duration = 1800, start = false) {
     requestAnimationFrame(step)
   }, [start, target, duration])
 
+  
   return count
 }
 
