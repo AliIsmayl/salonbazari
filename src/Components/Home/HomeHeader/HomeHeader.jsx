@@ -46,6 +46,7 @@ function HomeHeader() {
           Güc və Stilin 
           Mükəmməl 
           Uyğunluğu
+          Yoxlamaq
         </h1>
 
         <p className="home-header__desc" ref={descRef}>
