@@ -104,7 +104,8 @@
   border: 1.5px solid #f0f0f0;
   border-radius: 20px;
   background: #fff;
-  transition: box-shadow 0.25s ease, transform 0.2s ease,
+  transition:
+    transform 0.2s ease,
     border-color 0.25s ease;
 
   &:hover {
@@ -170,7 +171,9 @@
     border: 1.5px solid #f9c8de;
     color: #d63384;
     font-size: 24px;
-    transition: background 0.25s ease, transform 0.2s ease;
+    transition:
+      background 0.25s ease,
+      transform 0.2s ease;
 
     .packet-card:hover & {
       transform: scale(1.07);
@@ -264,8 +267,11 @@
     padding: 12px 0;
     border-radius: 50px;
     margin-top: 8px;
-    transition: background 0.25s ease, border-color 0.2s ease,
-      color 0.2s ease, transform 0.15s ease;
+    transition:
+      background 0.25s ease,
+      border-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.15s ease;
 
     &--outline {
       color: #d63384;

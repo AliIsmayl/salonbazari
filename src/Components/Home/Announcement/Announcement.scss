@@ -102,7 +102,8 @@
   border-radius: 20px;
   overflow: hidden;
   background: #fff;
-  transition: box-shadow 0.25s ease, transform 0.2s ease,
+  transition:
+    transform 0.2s ease,
     border-color 0.25s ease;
 
   &:hover {
@@ -265,8 +266,9 @@
     padding: 12px 0;
     border-radius: 50px;
     background: linear-gradient(135deg, #d63384, #e91e8c);
-    transition: background 0.25s ease, transform 0.15s ease,
-      box-shadow 0.25s ease;
+    transition:
+      background 0.25s ease,
+      transform 0.15s ease;
 
     &:hover {
       background: linear-gradient(135deg, #b5296e, #d63384);
@@ -275,7 +277,6 @@
 
     &:active {
       transform: translateY(0);
-      box-shadow: 0 2px 8px rgba(214, 51, 132, 0.3);
     }
 
     @media (max-width: 480px) {

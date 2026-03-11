@@ -1,4 +1,4 @@
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 .selling {
   width: 100%;
@@ -101,7 +101,8 @@
   border-radius: 20px;
   overflow: hidden;
   background: #fff;
-  transition: box-shadow 0.25s ease, transform 0.2s ease,
+  transition:
+    transform 0.2s ease,
     border-color 0.25s ease;
 
   &:hover {
@@ -290,8 +291,11 @@
     color: #555;
     padding: 10px 0;
     border: 1.5px solid #e8e8e8;
-    transition: border-color 0.2s, background 0.2s, color 0.2s;
-border-radius: 36px;
+    transition:
+      border-color 0.2s,
+      background 0.2s,
+      color 0.2s;
+    border-radius: 36px;
     &:hover {
       border-color: #d63384;
       background-color: #fff0f6;

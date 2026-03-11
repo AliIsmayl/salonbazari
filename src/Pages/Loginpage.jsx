@@ -1,9 +1,12 @@
 import React from 'react'
+import LoginMain from '../Components/Login/LoginMain/LoginMain'
 
-function Loginpage() {
+function LoginPage() {
   return (
-    <div>Loginpage</div>
+    <>
+      <LoginMain/>
+    </>
   )
 }
 
-export default Loginpage
+export default LoginPage

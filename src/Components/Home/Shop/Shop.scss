@@ -95,7 +95,8 @@
   border-radius: 16px;
   overflow: hidden;
   background: #fff;
-  transition: box-shadow 0.25s ease, transform 0.2s ease,
+  transition:
+    transform 0.2s ease,
     border-color 0.25s ease;
 
   &:hover {
@@ -199,7 +200,6 @@
     font-weight: 700;
     color: #fff;
     margin: 0;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 
     @media (max-width: 768px) {
       font-size: 15px;
@@ -335,7 +335,10 @@
     padding: 10px 0;
     border: 1.5px solid #f0c0d8;
     border-radius: 10px;
-    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    transition:
+      background 0.2s,
+      border-color 0.2s,
+      color 0.2s;
 
     &:hover {
       background-color: #fff0f6;

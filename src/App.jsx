@@ -10,8 +10,12 @@ import Navbar from "./Layout/Navbar/Navbar";
 import Footer from "./Layout/Footer/Footer";
 import HomePage from "./Pages/HomePage";
 import EveryOne from "./Pages/EveryOne";
+import LoginPage from "./Pages/LoginPage";
+import RegisterPage from "./Pages/RegisterPage";
+import ForgotPage from "./Pages/ForgotPage";
+import AboutPage from "./Pages/AboutPage";
 
-const NO_LAYOUT = ["/every"];
+const NO_LAYOUT = ["/every","/login","/register","/forgot",];
 
 const AppContent = () => {
   const location = useLocation();
@@ -34,6 +38,10 @@ const AppContent = () => {
       {!hideLayout && <Navbar />}
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/forgot" element={<ForgotPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/every" element={<Navigate to="/" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

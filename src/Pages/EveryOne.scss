@@ -81,10 +81,7 @@ $glow: rgba(192, 51, 176, 0.4);
     border-radius: 28px;
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-      0 32px 80px rgba(0, 0, 0, 0.55),
-      0 0 80px rgba(192, 51, 176, 0.08);
+
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -114,7 +111,6 @@ $glow: rgba(192, 51, 176, 0.4);
     height: 54px;
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 4px 18px $glow);
 
     @media (max-width: 480px) {
       height: 44px;
@@ -243,7 +239,6 @@ $glow: rgba(192, 51, 176, 0.4);
     height: 100%;
     // background: linear-gradient(90deg, $pd, $p, lighten($p, 12%));
     border-radius: 10px;
-    box-shadow: 0 0 10px $glow;
     background-size: 200% 100%;
     animation: shimmer 2s linear infinite;
   }
@@ -287,7 +282,6 @@ $glow: rgba(192, 51, 176, 0.4);
     outline: none;
     transition:
       border-color 0.25s ease,
-      box-shadow 0.25s ease,
       background 0.25s ease;
 
     &::placeholder {
@@ -297,7 +291,6 @@ $glow: rgba(192, 51, 176, 0.4);
     &:focus {
       border-color: rgba(192, 51, 176, 0.6);
       background: rgba(192, 51, 176, 0.06);
-      box-shadow: 0 0 0 3px rgba(192, 51, 176, 0.12);
     }
 
     @media (max-width: 360px) {
@@ -330,12 +323,10 @@ $glow: rgba(192, 51, 176, 0.4);
     font-family: "Poppins", sans-serif;
     letter-spacing: 0.08em;
     cursor: pointer;
-    box-shadow: 0 8px 24px $glow;
     position: relative;
     overflow: hidden;
     transition:
       transform 0.2s ease,
-      box-shadow 0.25s ease,
       background 0.25s ease;
 
     // Hover shimmer effekti
@@ -357,7 +348,6 @@ $glow: rgba(192, 51, 176, 0.4);
 
     &:hover {
       background: linear-gradient(135deg, $pd, #7a1f70);
-      box-shadow: 0 10px 32px $glow;
       transform: translateY(-2px);
 
       &::after {
@@ -367,7 +357,6 @@ $glow: rgba(192, 51, 176, 0.4);
 
     &:active {
       transform: translateY(0);
-      box-shadow: 0 4px 16px $glow;
     }
 
     @media (max-width: 360px) {

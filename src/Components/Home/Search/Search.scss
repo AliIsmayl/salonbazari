@@ -19,14 +19,11 @@
     border-radius: 50px;
     background: #fff;
     overflow: hidden;
-    transition:
-      border-color 0.25s ease,
-      box-shadow 0.25s ease;
+    transition: border-color 0.25s ease;
 
     &--focused,
     &:focus-within {
       border-color: #d63384;
-      box-shadow: 0 0 0 4px rgba(214, 51, 132, 0.08);
     }
   }
 
@@ -118,8 +115,7 @@
     border-radius: 0 50px 50px 0;
     transition:
       background 0.25s ease,
-      transform 0.15s ease,
-      box-shadow 0.25s ease;
+      transform 0.15s ease;
 
     &-icon {
       font-size: 14px;
@@ -131,7 +127,6 @@
 
     &:hover {
       background: linear-gradient(135deg, #b5296e, #d63384);
-      box-shadow: 0 4px 16px rgba(214, 51, 132, 0.35);
     }
 
     &:active {
@@ -164,15 +159,13 @@
       border-color 0.2s,
       color 0.2s,
       background 0.2s,
-      transform 0.2s,
-      box-shadow 0.2s;
+      transform 0.2s;
 
     &:hover {
       border-color: #d63384;
       color: #d63384;
       background: #fff0f6;
       transform: scale(1.1);
-      box-shadow: 0 4px 12px rgba(214, 51, 132, 0.15);
     }
 
     &:active {
@@ -184,7 +177,6 @@
       border-color: #d63384;
       background: #fff0f6;
       color: #d63384;
-      box-shadow: 0 4px 12px rgba(214, 51, 132, 0.2);
       animation: heartPop 0.3s ease;
 
       svg {

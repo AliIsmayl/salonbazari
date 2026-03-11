@@ -1,0 +1,356 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+$pink: #c026a0;
+$pink-hover: #a0198a;
+$pink-bg: #fdf0f9;
+$pink-ring: rgba(192, 38, 160, 0.12);
+$border: #e5e7eb;
+$text: #111827;
+$muted: #9ca3af;
+$label: #1f2937;
+$sub: #6b7280;
+$bg: #f3f4f6;
+$white: #fff;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// ── Page ──────────────────────────────────────────────────
+.rg-wrapper {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: $bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  font-family: "Inter", sans-serif;
+}
+
+// ── Card ──────────────────────────────────────────────────
+.rg-card {
+  background: $white;
+  border-radius: 20px;
+  padding: 40px 32px 36px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.rg-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 800;
+  color: $text;
+  letter-spacing: -0.4px;
+  margin-bottom: 6px;
+}
+
+.rg-subtitle {
+  text-align: center;
+  font-size: 13px;
+  color: $muted;
+  margin-bottom: 28px;
+}
+
+// ── Form ──────────────────────────────────────────────────
+.rg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.rg-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: $label;
+}
+
+// ── Input wrap — FLEXBOX (ikon + input yan-yana) ───────────
+.rg-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  border: 1.5px solid $border;
+  border-radius: 11px;
+  background: $white;
+  height: 48px;
+  transition:
+    border-color 0.18s,
+    box-shadow 0.18s,
+    background 0.18s;
+
+  &--pink {
+    border-color: $pink;
+    background: $pink-bg;
+    box-shadow: 0 0 0 3px $pink-ring;
+
+    .rg-icon {
+      color: $pink;
+    }
+  }
+}
+
+// ── Icon ─────────────────────────────────────────────────
+.rg-icon {
+  color: $muted;
+  flex-shrink: 0;
+  transition: color 0.18s;
+}
+
+// ── Input ─────────────────────────────────────────────────
+.rg-input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: $text;
+  outline: none;
+
+  &::placeholder {
+    color: $muted;
+  }
+}
+
+// ── Eye button ────────────────────────────────────────────
+.rg-eye {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $muted;
+  padding: 0;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  transition: color 0.18s;
+
+  &:hover {
+    color: $pink;
+  }
+}
+
+// ── Checkbox ─────────────────────────────────────────────
+.rg-check-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.rg-check {
+  position: relative;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .rg-check__box {
+      background: $pink;
+      border-color: $pink;
+
+      &::after {
+        opacity: 1;
+        transform: rotate(45deg) scale(1);
+      }
+    }
+  }
+
+  &__box {
+    position: absolute;
+    inset: 0;
+    border: 1.5px solid $border;
+    border-radius: 4px;
+    background: $white;
+    transition:
+      background 0.15s,
+      border-color 0.15s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      width: 5px;
+      height: 8px;
+      border: 2px solid $white;
+      border-top: none;
+      border-left: none;
+      opacity: 0;
+      transform: rotate(45deg) scale(0.5);
+      transition:
+        opacity 0.13s,
+        transform 0.13s;
+    }
+  }
+}
+
+.rg-check-text {
+  font-size: 13px;
+  color: $sub;
+
+  a {
+    color: $pink;
+    font-weight: 600;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// ── Submit ────────────────────────────────────────────────
+.rg-btn {
+  width: 100%;
+  height: 50px;
+  background: $pink;
+  color: $white;
+  border: none;
+  border-radius: 11px;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+  box-shadow: 0 4px 16px rgba(192, 38, 160, 0.38);
+  transition:
+    filter 0.18s,
+    transform 0.13s,
+    box-shadow 0.18s;
+  touch-action: manipulation;
+
+  &:hover {
+    filter: brightness(0.93);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(192, 38, 160, 0.48);
+  }
+
+  &:active {
+    transform: translateY(0);
+    filter: brightness(0.87);
+  }
+}
+
+// ── Divider ───────────────────────────────────────────────
+.rg-divider {
+  height: 1px;
+  background: $border;
+  margin: 4px 0;
+}
+
+// ── Footer ────────────────────────────────────────────────
+.rg-footer {
+  text-align: center;
+  font-size: 13.5px;
+  color: $muted;
+
+  a {
+    color: $pink;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 4px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// ─── Responsive ───────────────────────────────────────────
+
+@media (max-width: 480px) {
+  .rg-wrapper {
+    padding: 0;
+    align-items: stretch;
+    background: $white;
+  }
+
+  .rg-card {
+    border-radius: 0;
+    padding: 52px 20px 36px;
+    box-shadow: none;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .rg-title {
+    font-size: 22px;
+  }
+  .rg-subtitle {
+    font-size: 12.5px;
+    margin-bottom: 22px;
+  }
+
+  .rg-input-wrap {
+    height: 50px;
+  }
+  .rg-input {
+    font-size: 16px;
+  } // iOS zoom yox
+
+  .rg-btn {
+    height: 52px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .rg-card {
+    padding: 44px 16px 32px;
+  }
+  .rg-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .rg-wrapper {
+    align-items: flex-start;
+    padding: 16px 20px;
+    background: $bg;
+  }
+
+  .rg-card {
+    border-radius: 16px;
+    padding: 24px 28px;
+    min-height: unset;
+    max-width: 480px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .rg-title {
+    font-size: 20px;
+  }
+  .rg-subtitle {
+    margin-bottom: 14px;
+  }
+  .rg-form {
+    gap: 10px;
+  }
+  .rg-input-wrap {
+    height: 42px;
+  }
+  .rg-btn {
+    height: 44px;
+    margin-top: 0;
+  }
+}

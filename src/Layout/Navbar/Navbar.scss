@@ -8,7 +8,6 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
   font-family: "Poppins", sans-serif;
   overflow: visible;
   transition: transform 0.35s ease;
@@ -224,7 +223,6 @@
       background: #fff;
       border: 1px solid #eee;
       border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
       list-style: none;
       margin: 0;
       padding: 6px;

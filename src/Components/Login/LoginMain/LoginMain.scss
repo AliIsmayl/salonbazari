@@ -1,0 +1,493 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+$primary: #c026a0;
+$primary-hover: #a01880;
+$border: #e5e7eb;
+$border-focus: #c026a0;
+$text: #111827;
+$text-muted: #9ca3af;
+$text-label: #374151;
+$bg: #f3f4f6;
+$white: #ffffff;
+$input-bg: #fdf4fb;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.lm-wrapper {
+  min-height: 100vh;
+  background: $bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+  padding: 20px;
+}
+
+.lm-card {
+  background: $white;
+  border-radius: 20px;
+  padding: 40px 36px 36px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+}
+
+// Title
+.lm-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: $text;
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+
+.lm-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: $text-muted;
+  font-weight: 400;
+  margin-bottom: 28px;
+}
+
+// Tabs
+.lm-tabs {
+  display: flex;
+  border: 1.5px solid $border;
+  border-radius: 12px;
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 24px;
+  background: $white;
+}
+
+.lm-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-muted;
+  cursor: pointer;
+  transition: all 0.18s ease;
+
+  svg {
+    flex-shrink: 0;
+    color: currentColor;
+  }
+
+  &--active {
+    background: $primary;
+    color: $white;
+    box-shadow: 0 2px 8px rgba(192, 38, 160, 0.25);
+  }
+
+  &:not(&--active):hover {
+    background: #f9fafb;
+    color: $text;
+  }
+}
+
+// Form
+.lm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.lm-field {
+  margin-bottom: 16px;
+}
+
+.lm-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-label;
+  margin-bottom: 8px;
+}
+
+// Input
+.lm-input-wrap {
+  position: relative;
+
+  &--filled .lm-input {
+    background: $input-bg;
+    border-color: $primary;
+    color: $text;
+  }
+}
+
+.lm-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid $border;
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: $text;
+  background: $white;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &::placeholder {
+    color: $text-muted;
+    font-weight: 400;
+  }
+
+  &:focus {
+    border-color: $border-focus;
+    box-shadow: 0 0 0 3px rgba(192, 38, 160, 0.1);
+  }
+
+  &--pr {
+    padding-right: 44px;
+  }
+}
+
+.lm-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $text-muted;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+
+  &:hover {
+    color: $text;
+  }
+}
+
+// Phone
+.lm-phone-wrap {
+  display: flex;
+  border: 1.5px solid $border;
+  border-radius: 10px;
+  overflow: hidden;
+
+  &:focus-within {
+    border-color: $border-focus;
+    box-shadow: 0 0 0 3px rgba(192, 38, 160, 0.1);
+  }
+}
+
+.lm-phone-prefix {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 14px;
+  background: #f9fafb;
+  border-right: 1.5px solid $border;
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-label;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.lm-phone-input {
+  flex: 1;
+  padding: 12px 14px;
+  border: none;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: $text;
+  outline: none;
+  background: $white;
+
+  &::placeholder {
+    color: $text-muted;
+    letter-spacing: 2px;
+  }
+}
+
+// Options row
+.lm-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.lm-remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: $primary;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  span {
+    font-size: 13px;
+    font-weight: 500;
+    color: $text-label;
+  }
+}
+
+.lm-forgot {
+  font-size: 13px;
+  font-weight: 600;
+  color: $primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Submit
+.lm-submit {
+  width: 100%;
+  padding: 14px;
+  background: $primary;
+  color: $white;
+  border: none;
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.12s;
+  letter-spacing: 0.1px;
+
+  &:hover {
+    background: $primary-hover;
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+}
+
+// Divider
+.lm-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+  color: $text-muted;
+  font-size: 13px;
+  font-weight: 500;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: $border;
+  }
+
+  span {
+    white-space: nowrap;
+  }
+}
+
+// Social
+.lm-social {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.lm-social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 10px;
+  border: 1.5px solid $border;
+  border-radius: 10px;
+  background: $white;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-label;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s;
+  white-space: nowrap;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+  }
+}
+
+// Footer
+.lm-footer {
+  text-align: center;
+  font-size: 14px;
+  color: $text-muted;
+  font-weight: 400;
+
+  a {
+    color: $primary;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// ─── Responsive ───────────────────────────────────────────
+
+// Tablet (max 768px)
+@media (max-width: 768px) {
+  .lm-wrapper {
+    padding: 16px;
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+
+  .lm-card {
+    padding: 32px 28px 28px;
+    border-radius: 16px;
+    max-width: 100%;
+  }
+
+  .lm-title {
+    font-size: 22px;
+  }
+
+  .lm-social {
+    gap: 8px;
+  }
+
+  .lm-social-btn {
+    font-size: 12px;
+    padding: 11px 8px;
+    gap: 6px;
+  }
+}
+
+// Mobile (max 480px)
+@media (max-width: 480px) {
+  .lm-wrapper {
+    padding: 0;
+    align-items: stretch;
+    background: $white;
+  }
+
+  .lm-card {
+    border-radius: 0;
+    padding: 48px 20px 32px;
+    box-shadow: none;
+    min-height: 100vh;
+  }
+
+  .lm-title {
+    font-size: 22px;
+  }
+
+  .lm-subtitle {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .lm-tab {
+    font-size: 13px;
+    padding: 10px 10px;
+    gap: 6px;
+  }
+
+  .lm-input {
+    font-size: 16px; // iOS zoom qarşısını alır
+    padding: 13px 16px;
+
+    &--pr {
+      padding-right: 44px;
+    }
+  }
+
+  .lm-label {
+    font-size: 13px;
+  }
+
+  .lm-options {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .lm-remember span {
+    font-size: 12px;
+  }
+
+  .lm-forgot {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .lm-submit {
+    font-size: 15px;
+    padding: 15px;
+  }
+
+  .lm-social {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .lm-social-btn {
+    font-size: 14px;
+    padding: 13px 16px;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .lm-divider {
+    margin: 18px 0;
+  }
+
+  .lm-footer {
+    font-size: 13px;
+  }
+
+  .lm-phone-input {
+    font-size: 16px; // iOS zoom qarşısını alır
+  }
+}
+
+// Very small screens (max 360px)
+@media (max-width: 360px) {
+  .lm-card {
+    padding: 40px 16px 28px;
+  }
+
+  .lm-title {
+    font-size: 20px;
+  }
+
+  .lm-tab {
+    font-size: 12px;
+    padding: 9px 8px;
+  }
+}
