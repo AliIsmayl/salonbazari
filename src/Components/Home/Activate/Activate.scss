@@ -7,7 +7,7 @@
   font-family: "Poppins", sans-serif;
 
   &__container {
-    max-width: 1800px;
+    max-width: 1480px;
     margin: 0 auto;
     padding: 0 80px;
     display: grid;
@@ -54,7 +54,9 @@
     border: 2px solid #f9c8de;
     color: #d63384;
     font-size: 24px;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease;
 
     .activate__item:hover & {
       transform: scale(1.12);

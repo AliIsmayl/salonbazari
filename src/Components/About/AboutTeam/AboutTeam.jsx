@@ -1,9 +1,6 @@
 import React from 'react'
 import './AboutTeam.scss'
 
-// Şəkillərin yollarını öz layihənə görə dəyiş
-
-
 const teamMembers = [
   {
     id: 1,
@@ -34,21 +31,23 @@ const teamMembers = [
 function AboutTeam() {
   return (
     <section className="about-team">
-      <h2 className="about-team__title">Komandamız</h2>
-      <div className="about-team__grid">
-        {teamMembers.map((member) => (
-          <div key={member.id} className="about-team__card">
-            <div className="about-team__photo-wrapper">
-              <img
-                src={member.photo}
-                alt={member.name}
-                className="about-team__photo"
-              />
+      <div className="about-team__container">
+        <h2 className="about-team__title">Komandamız</h2>
+        <div className="about-team__grid">
+          {teamMembers.map((member) => (
+            <div key={member.id} className="about-team__card">
+              <div className="about-team__photo-wrapper">
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  className="about-team__photo"
+                />
+              </div>
+              <p className="about-team__role">{member.role}</p>
+              <p className="about-team__name">{member.name}</p>
             </div>
-            <p className="about-team__role">{member.role}</p>
-            <p className="about-team__name">{member.name}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )

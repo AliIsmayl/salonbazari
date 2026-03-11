@@ -64,10 +64,10 @@ function Navbar() {
             <a href="/">Ana səhifə</a>
           </li>
           <li>
-            <a href="/haqqimizda">Haqqımızda</a>
+            <a href="/about">Haqqımızda</a>
           </li>
           <li>
-            <a href="/magazalar">Mağazalar</a>
+            <a href="/shop">Mağazalar</a>
           </li>
           <li>
             <a href="/mehsullar">Məhsullar</a>
@@ -173,12 +173,12 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a href="/haqqimizda" onClick={() => setMenuOpen(false)}>
+            <a href="/about" onClick={() => setMenuOpen(false)}>
               Haqqımızda
             </a>
           </li>
           <li>
-            <a href="/magazalar" onClick={() => setMenuOpen(false)}>
+            <a href="/shop" onClick={() => setMenuOpen(false)}>
               Mağazalar
             </a>
           </li>

@@ -1,89 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-// --- Section Header ---
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  gap: 16px;
 
-  &__left {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  &__title {
-    font-size: 18px;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin: 0;
-    line-height: 1.4;
-
-    @media (max-width: 768px) {
-      font-size: 16px;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 15px;
-    }
-  }
-
-  &__subtitle {
-    font-size: 13px;
-    font-weight: 400;
-    color: #999;
-    margin: 0;
-
-    @media (max-width: 480px) {
-      font-size: 12px;
-    }
-  }
-
-  &__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 20px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    white-space: nowrap;
-    background: transparent;
-    color: #1a1a1a;
-    border: 1.5px solid transparent;
-    transition:
-      background 0.25s ease,
-      color 0.25s ease,
-      border-color 0.25s ease;
-
-    &-icon {
-      font-size: 15px;
-    }
-
-    &--hovered {
-      background: #c033b0;
-      color: #fff;
-      border-color: #c033b0;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 13px;
-      padding: 8px 16px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    flex-direction: column;
-    align-items: flex-start;
-
-    &__btn {
-      align-self: flex-start;
-    }
-  }
-}
 
 // --- Product ---
 .product {
@@ -102,7 +19,8 @@
 
   &__container {
     padding: 0 80px;
-    max-width: 1800px;
+     max-width: 1480px;
+    margin: 0 auto;
     width: 100%;
     display: flex;
     flex-direction: column;
