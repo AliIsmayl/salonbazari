@@ -1,103 +1,126 @@
-import React from 'react'
-import './Shop.scss'
-import { FiMapPin, FiShield } from 'react-icons/fi'
-import { FaStar } from 'react-icons/fa'
-import image1 from '../../../Image/shop1.png'
-import image2 from '../../../Image/shop2.png'
+import React, { useState } from "react";
+import "./Shop.scss";
+import { FiMapPin, FiShield } from "react-icons/fi";
+import { FaStar } from "react-icons/fa";
+import image1 from "../../../Image/shop1.png";
+import image2 from "../../../Image/shop2.png";
 
 const BADGE_STYLES = {
-  'Təsdiqlənmiş Satıcı': { bg: '#a855f7', color: '#fff' },
-  'Top Brend':           { bg: '#d63384', color: '#fff' },
-  'Topdan Satış':        { bg: '#0ea5e9', color: '#fff' },
-  'Endirim':             { bg: '#f97316', color: '#fff' },
-}
+  "Təsdiqlənmiş Satıcı": { bg: "#a855f7", color: "#fff" },
+  "Top Brend": { bg: "#d63384", color: "#fff" },
+  "Topdan Satış": { bg: "#0ea5e9", color: "#fff" },
+  Endirim: { bg: "#f97316", color: "#fff" },
+};
 
 const SHOPS = [
   {
     id: 1,
-    badge: 'Təsdiqlənmiş Satıcı',
+    badge: "Təsdiqlənmiş Satıcı",
     image: image1,
-    name: 'Dermacare Official',
-    type: 'Rəsmi mağaza',
-    desc: 'Kosmetoloji prosedur və dəri baxımı məhsulları.',
-    location: 'Bakı, Nəsimi',
+    name: "Dermacare Official",
+    type: "Rəsmi mağaza",
+    desc: "Kosmetoloji prosedur və dəri baxımı məhsulları.",
+    location: "Bakı, Nəsimi",
     rating: 5.0,
     reviews: 1282,
-    href: '/shop/1',
+    href: "/shop/1",
   },
   {
     id: 2,
-    badge: 'Top Brend',
+    badge: "Top Brend",
     image: image2,
-    name: 'Loreal Professional',
-    type: 'Rəsmi mağaza',
-    desc: 'Professional saç baxımı və boyama sistemləri.',
-    location: 'Bakı, Xətai',
+    name: "Loreal Professional",
+    type: "Rəsmi mağaza",
+    desc: "Professional saç baxımı və boyama sistemləri.",
+    location: "Bakı, Xətai",
     rating: 4.9,
     reviews: 1043,
-    href: '/shop/2',
+    href: "/shop/2",
   },
   {
     id: 3,
-    badge: 'Topdan Satış',
+    badge: "Topdan Satış",
     image: image1,
-    name: 'HairLab Official',
-    type: 'Rəsmi mağaza',
-    desc: 'Orijinal saç boyaları və saç baxım vasitələri.',
-    location: 'Bakı, Yasamal',
+    name: "HairLab Official",
+    type: "Rəsmi mağaza",
+    desc: "Orijinal saç boyaları və saç baxım vasitələri.",
+    location: "Bakı, Yasamal",
     rating: 5.0,
     reviews: 1572,
-    href: '/shop/3',
+    href: "/shop/3",
   },
   {
     id: 4,
-    badge: 'Endirim',
+    badge: "Endirim",
     image: image1,
-    name: 'Ela De Pure',
-    type: 'Rəsmi mağaza',
-    desc: 'Saf tərkibli və premium üz baxım məhsulları.',
-    location: 'Bakı, Nizam',
+    name: "Ela De Pure",
+    type: "Rəsmi mağaza",
+    desc: "Saf tərkibli və premium üz baxım məhsulları.",
+    location: "Bakı, Nizam",
     rating: 4.8,
     reviews: 1422,
-    href: '/shop/4',
+    href: "/shop/4",
   },
-]
+];
 
-function ShopCard({ badge, image, name, type, desc, location, rating, reviews, href }) {
-  const badgeStyle = BADGE_STYLES[badge] || { bg: '#888', color: '#fff' }
+// --- Reusable SectionHeader ---
+function SectionHeader({ title, subtitle, href }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div className="section-header">
+      <div className="section-header__left">
+        <h2 className="section-header__title">{title}</h2>
+        <p className="section-header__subtitle">{subtitle}</p>
+      </div>
+      <a
+        href={href}
+        className={`section-header__btn ${hovered ? "section-header__btn--hovered" : ""}`}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        Hamısına bax
+        <span className="section-header__btn-icon">{hovered ? "↗" : "↘"}</span>
+      </a>
+    </div>
+  );
+}
+
+function ShopCard({
+  badge,
+  image,
+  name,
+  type,
+  desc,
+  location,
+  rating,
+  reviews,
+  href,
+}) {
+  const badgeStyle = BADGE_STYLES[badge] || { bg: "#888", color: "#fff" };
 
   return (
     <div className="shop-card">
-
-      {/* Image */}
       <div className="shop-card__image-wrap">
         <img src={image} alt={name} className="shop-card__image" />
         <div className="shop-card__overlay" />
-
-        {/* Badge */}
         <span
           className="shop-card__badge"
           style={{ backgroundColor: badgeStyle.bg, color: badgeStyle.color }}
         >
           {badge}
         </span>
-
-        {/* Verified icon */}
         <span className="shop-card__verified">
           <FiShield />
         </span>
-
-        {/* Name over image */}
         <div className="shop-card__image-info">
           <h3 className="shop-card__name">{name}</h3>
           <span className="shop-card__type">{type}</span>
         </div>
       </div>
 
-      {/* Body */}
       <div className="shop-card__body">
         <p className="shop-card__desc">{desc}</p>
-
         <div className="shop-card__meta">
           <span className="shop-card__location">
             <FiMapPin />
@@ -111,27 +134,25 @@ function ShopCard({ badge, image, name, type, desc, location, rating, reviews, h
         </div>
       </div>
 
-      {/* Footer */}
       <div className="shop-card__footer">
         <a href={href} className="shop-card__btn">
           Ətraflı bax
         </a>
       </div>
-
     </div>
-  )
+  );
 }
 
 function Shop() {
   return (
     <section className="shop">
       <div className="shop__container">
-
         {/* Header */}
-        <div className="shop__header">
-          <h2 className="shop__title">Rəsmi mağazalar və Distribütorlar</h2>
-          <p className="shop__subtitle">Seçilmiş professional gözəllik məhsulları</p>
-        </div>
+        <SectionHeader
+          title="Rəsmi mağazalar və Distribütorlar"
+          subtitle="Seçilmiş professional gözəllik məhsulları"
+          href="/magazalar"
+        />
 
         {/* Grid */}
         <div className="shop__grid">
@@ -139,10 +160,9 @@ function Shop() {
             <ShopCard key={item.id} {...item} />
           ))}
         </div>
-
       </div>
     </section>
-  )
+  );
 }
 
-export default Shop
+export default Shop;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Selling.scss'
 import { FiCheck } from 'react-icons/fi'
 import image1 from '../../../Image/product1.png'
@@ -43,16 +43,11 @@ const PRODUCTS = [
 function SellingCard({ image, shopLogo, shopName, price, name, brand, inStock, href }) {
   return (
     <div className="selling-card">
-
-      {/* Image */}
       <div className="selling-card__image-wrap">
         <img src={image} alt={name} className="selling-card__image" />
       </div>
 
-      {/* Body */}
       <div className="selling-card__body">
-
-        {/* Shop row */}
         <div className="selling-card__shop-row">
           <div className="selling-card__shop">
             <img src={shopLogo} alt={shopName} className="selling-card__shop-logo" />
@@ -61,10 +56,8 @@ function SellingCard({ image, shopLogo, shopName, price, name, brand, inStock, h
           <span className="selling-card__price">{price}</span>
         </div>
 
-        {/* Name */}
         <h3 className="selling-card__name">{name}</h3>
 
-        {/* Brand + Stock */}
         <div className="selling-card__meta">
           <span className="selling-card__brand">Brend: {brand}</span>
           {inStock && (
@@ -76,31 +69,41 @@ function SellingCard({ image, shopLogo, shopName, price, name, brand, inStock, h
         </div>
       </div>
 
-      {/* Divider */}
       <div className="selling-card__divider" />
 
-      {/* Footer */}
       <div className="selling-card__footer">
         <a href={href} className="selling-card__btn">
           Ətraflı bax
         </a>
       </div>
-
     </div>
   )
 }
 
 function Selling() {
+  const [hovered, setHovered] = useState(false)
+
   return (
     <section className="selling">
       <div className="selling__container">
 
         {/* Header */}
         <div className="selling__header">
-          <h2 className="selling__title">Ən çox satılan peşəkar məhsullar</h2>
-          <p className="selling__subtitle">
-            Yeni açılan salonlar və mütəxəssislər üçün seçilmiş top təkliflər
-          </p>
+          <div className="selling__header-left">
+            <h2 className="selling__title">Ən çox satılan peşəkar məhsullar</h2>
+            <p className="selling__subtitle">
+              Yeni açılan salonlar və mütəxəssislər üçün seçilmiş top təkliflər
+            </p>
+          </div>
+          <a
+            href="/mehsullar"
+            className={`selling__view-btn ${hovered ? 'selling__view-btn--hovered' : ''}`}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
+            Hamısına bax
+            <span className="selling__view-btn-icon">{hovered ? '↗' : '↘'}</span>
+          </a>
         </div>
 
         {/* Grid */}

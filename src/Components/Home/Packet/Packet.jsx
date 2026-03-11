@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Packet.scss'
 import { FiCheck } from 'react-icons/fi'
 import { LuStore } from 'react-icons/lu'
@@ -54,24 +54,14 @@ const PACKETS = [
 function PacketCard({ popular, icon, title, subtitle, features, btnLabel, btnVariant, href }) {
   return (
     <div className={`packet-card ${popular ? 'packet-card--popular' : ''}`}>
-
-      {/* Popular badge */}
       {popular && (
-        <div className="packet-card__popular-badge">
-          Populyar
-        </div>
+        <div className="packet-card__popular-badge">Populyar</div>
       )}
 
-      {/* Icon */}
       <div className="packet-card__icon">{icon}</div>
-
-      {/* Title */}
       <h3 className="packet-card__title">{title}</h3>
-
-      {/* Subtitle */}
       <p className="packet-card__subtitle">{subtitle}</p>
 
-      {/* Features */}
       <ul className="packet-card__features">
         {features.map((f, i) => (
           <li key={i} className="packet-card__feature">
@@ -81,29 +71,37 @@ function PacketCard({ popular, icon, title, subtitle, features, btnLabel, btnVar
         ))}
       </ul>
 
-      {/* Button */}
-      <a
-        href={href}
-        className={`packet-card__btn packet-card__btn--${btnVariant}`}
-      >
+      <a href={href} className={`packet-card__btn packet-card__btn--${btnVariant}`}>
         {btnLabel}
       </a>
-
     </div>
   )
 }
 
 function Packet() {
+  const [hovered, setHovered] = useState(false)
+
   return (
     <section className="packet">
       <div className="packet__container">
 
         {/* Header */}
         <div className="packet__header">
-          <h2 className="packet__title">Bizim paketlər</h2>
-          <p className="packet__subtitle">
-            Biznesinizi böyütmək üçün sizə uyğun paketi seçin.
-          </p>
+          <div className="packet__header-left">
+            <h2 className="packet__title">Bizim paketlər</h2>
+            <p className="packet__subtitle">
+              Biznesinizi böyütmək üçün sizə uyğun paketi seçin.
+            </p>
+          </div>
+          <a
+            href="/paketler"
+            className={`packet__view-btn ${hovered ? 'packet__view-btn--hovered' : ''}`}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
+            Hamısına bax
+            <span className="packet__view-btn-icon">{hovered ? '↗' : '↘'}</span>
+          </a>
         </div>
 
         {/* Grid */}

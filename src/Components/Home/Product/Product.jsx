@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Product.scss";
 import { FiMapPin } from "react-icons/fi";
 import image1 from "../../../Image/product1.png";
 import image2 from "../../../Image/product2.png";
 import image3 from "../../../Image/product3.png";
 
-// Badge rəngləri
 const BADGE_STYLES = {
   "İkinci əl": { bg: "#f0f0f0", color: "#555" },
   "Az qalıb": { bg: "#fff3cd", color: "#856404" },
@@ -56,12 +55,34 @@ const PRODUCTS = [
   },
 ];
 
+// --- Reusable SectionHeader ---
+function SectionHeader({ title, subtitle, href }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div className="section-header">
+      <div className="section-header__left">
+        <h2 className="section-header__title">{title}</h2>
+        <p className="section-header__subtitle">{subtitle}</p>
+      </div>
+      <a
+        href={href}
+        className={`section-header__btn ${hovered ? "section-header__btn--hovered" : ""}`}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        Hamısına bax
+        <span className="section-header__btn-icon">{hovered ? "↗" : "↘"}</span>
+      </a>
+    </div>
+  );
+}
+
 function ProductCard({ badge, image, name, desc, shop, price, href }) {
   const badgeStyle = BADGE_STYLES[badge] || BADGE_STYLES["Yeni"];
 
   return (
     <div className="product-card">
-      {/* Image */}
       <div className="product-card__image-wrap">
         <img src={image} alt={name} className="product-card__image" />
         {badge && (
@@ -74,7 +95,6 @@ function ProductCard({ badge, image, name, desc, shop, price, href }) {
         )}
       </div>
 
-      {/* Body */}
       <div className="product-card__body">
         <h3 className="product-card__name">{name}</h3>
         <p className="product-card__desc">{desc}</p>
@@ -85,7 +105,6 @@ function ProductCard({ badge, image, name, desc, shop, price, href }) {
         <p className="product-card__price">{price}</p>
       </div>
 
-      {/* Footer */}
       <div className="product-card__footer">
         <a href={href} className="product-card__btn">
           Ətraflı bax
@@ -99,12 +118,12 @@ function Product() {
   return (
     <section className="product">
       <div className="product__container">
-        <div className="product__header">
-          <h2 className="product__title">Bazardakı məhsullar</h2>
-          <p className="product__subtitle">
-            Seçilmiş professional gözəllik məhsulları
-          </p>
-        </div>
+        {/* Header */}
+        <SectionHeader
+          title="Bazardakı məhsullar"
+          subtitle="Seçilmiş professional gözəllik məhsulları"
+          href="/mehsullar"
+        />
 
         <div className="product__grid">
           {PRODUCTS.map((item) => (

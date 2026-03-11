@@ -17,9 +17,9 @@
   &__container {
     padding: 0 80px;
     max-width: 1800px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 36px;
 
     @media (max-width: 1024px) {
@@ -40,38 +40,85 @@
 
   // --- Header ---
   &__header {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 16px;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__header-left {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
   }
 
   &__title {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 32px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.4;
 
     @media (max-width: 768px) {
-      font-size: 20px;
-      line-height: 28px;
+      font-size: 16px;
     }
 
     @media (max-width: 480px) {
-      font-size: 18px;
-      line-height: 26px;
+      font-size: 15px;
     }
   }
 
   &__subtitle {
-    font-size: 14px;
-    font-style: normal;
+    font-size: 13px;
     font-weight: 400;
-    line-height: 24px;
+    color: #999;
+    margin: 0;
+
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
+  }
+
+  // --- "Hamısına bax" button ---
+  &__view-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+    background: transparent;
+    color: #1a1a1a;
+    border: 1.5px solid transparent;
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+
+    &-icon {
+      font-size: 15px;
+    }
+
+    &--hovered {
+      background: #c033b0;
+      color: #fff;
+      border-color: #c033b0;
+    }
 
     @media (max-width: 480px) {
       font-size: 13px;
-      line-height: 22px;
+      padding: 8px 16px;
+      align-self: flex-start;
     }
   }
 
@@ -103,6 +150,7 @@
   overflow: hidden;
   background: #fff;
   transition:
+    box-shadow 0.25s ease,
     transform 0.2s ease,
     border-color 0.25s ease;
 
@@ -119,7 +167,6 @@
     transform: translateY(-1px);
   }
 
-  // --- Image ---
   &__image-wrap {
     width: 100%;
     aspect-ratio: 16 / 10;
@@ -134,7 +181,6 @@
     transition: transform 0.4s ease;
   }
 
-  // --- Body ---
   &__body {
     display: flex;
     flex-direction: column;
@@ -150,9 +196,10 @@
 
   &__name {
     font-size: 20px;
-    font-style: normal;
     font-weight: 500;
     line-height: 28px;
+    margin: 0;
+    color: #1a1a1a;
 
     @media (max-width: 768px) {
       font-size: 17px;
@@ -167,9 +214,10 @@
 
   &__desc {
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
     line-height: 24px;
+    margin: 0;
+    color: #666;
 
     @media (max-width: 480px) {
       font-size: 13px;
@@ -196,9 +244,9 @@
     align-items: center;
     gap: 2px;
     font-size: 18px;
-    font-style: normal;
     font-weight: 500;
     line-height: 28px;
+    color: #1a1a1a;
 
     svg {
       font-size: 16px;
@@ -245,7 +293,6 @@
     }
   }
 
-  // --- Footer ---
   &__footer {
     padding: 12px 18px 18px;
 
@@ -268,7 +315,8 @@
     background: linear-gradient(135deg, #d63384, #e91e8c);
     transition:
       background 0.25s ease,
-      transform 0.15s ease;
+      transform 0.15s ease,
+      box-shadow 0.25s ease;
 
     &:hover {
       background: linear-gradient(135deg, #b5296e, #d63384);
@@ -277,6 +325,7 @@
 
     &:active {
       transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(214, 51, 132, 0.3);
     }
 
     @media (max-width: 480px) {

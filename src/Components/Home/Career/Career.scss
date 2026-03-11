@@ -20,7 +20,6 @@
     padding: 0 80px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 36px;
 
     @media (max-width: 1024px) {
@@ -40,37 +39,85 @@
 
   // --- Header ---
   &__header {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 16px;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__header-left {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
   }
 
   &__title {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 700;
     color: #1a1a1a;
     margin: 0;
-    line-height: 32px;
+    line-height: 1.4;
 
     @media (max-width: 768px) {
-      font-size: 20px;
+      font-size: 16px;
     }
 
     @media (max-width: 480px) {
-      font-size: 18px;
+      font-size: 15px;
     }
   }
 
   &__subtitle {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     color: #999;
     margin: 0;
-    line-height: 24px;
+
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
+  }
+
+  // --- "Hamısına bax" button ---
+  &__view-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+    background: transparent;
+    color: #1a1a1a;
+    border: 1.5px solid transparent;
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+
+    &-icon {
+      font-size: 15px;
+    }
+
+    &--hovered {
+      background: #c033b0;
+      color: #fff;
+      border-color: #c033b0;
+    }
 
     @media (max-width: 480px) {
       font-size: 13px;
+      padding: 8px 16px;
+      align-self: flex-start;
     }
   }
 
@@ -121,7 +168,6 @@
     border-radius: 16px;
   }
 
-  // --- Top row ---
   &__top {
     display: flex;
     align-items: flex-start;
@@ -129,7 +175,6 @@
     margin-bottom: 16px;
   }
 
-  // --- Icon ---
   &__icon {
     display: flex;
     align-items: center;
@@ -160,7 +205,6 @@
     }
   }
 
-  // --- Badge ---
   &__badge {
     display: inline-flex;
     align-items: center;
@@ -178,7 +222,6 @@
     }
   }
 
-  // --- Body ---
   &__body {
     display: flex;
     flex-direction: column;
@@ -208,7 +251,6 @@
     }
   }
 
-  // --- Salary ---
   &__salary {
     display: flex;
     align-items: center;
@@ -232,7 +274,6 @@
     }
   }
 
-  // --- Meta ---
   &__meta {
     display: flex;
     align-items: center;
@@ -282,7 +323,6 @@
     }
   }
 
-  // --- Footer ---
   &__footer {
     margin-top: auto;
   }
