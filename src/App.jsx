@@ -10,11 +10,11 @@ import Navbar from "./Layout/Navbar/Navbar";
 import Footer from "./Layout/Footer/Footer";
 import HomePage from "./Pages/HomePage";
 import EveryOne from "./Pages/EveryOne";
-import LoginPage from "./Pages/LoginPage";
 import RegisterPage from "./Pages/RegisterPage";
 import ForgotPage from "./Pages/ForgotPage";
 import AboutPage from "./Pages/AboutPage";
 import ShopPage from "./Pages/ShopPage";
+import LoginPage from "./Pages/LoginPage";
 
 const NO_LAYOUT = ["/every","/login","/register","/forgot",];
 
