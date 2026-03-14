@@ -1,0 +1,808 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+// ─── Tokens ───────────────────────────────────────────────
+$primary: #c026a0;
+$primary-dark: #9d1a7d;
+$primary-soft: #fdf0f8;
+$primary-border: #f0c0e5;
+$accent: #0f172a;
+$surface: #ffffff;
+$bg: #f8f8fb;
+$border: #e8e8ee;
+$border-dark: #d0d0dc;
+$text-900: #0f172a;
+$text-600: #475569;
+$text-400: #94a3b8;
+$error: #dc2626;
+$success: #059669;
+$radius-xl: 16px;
+$radius-lg: 12px;
+$radius-md: 8px;
+$radius-sm: 6px;
+
+// ─── Reset ────────────────────────────────────────────────
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// ─── Root ─────────────────────────────────────────────────
+.ann {
+  font-family: "Poppins", sans-serif;
+  background: $bg;
+  min-height: 100vh;
+  padding: 70px 0 80px;
+  color: $text-900;
+
+  // ─── Container ─────────────────────────────────────────
+  &__container {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 80px;
+
+    @media (max-width: 1100px) {
+      padding: 0 40px;
+    }
+    @media (max-width: 600px) {
+      padding: 0 20px;
+    }
+  }
+
+  // ─── Header ────────────────────────────────────────────
+  &__header {
+    margin-bottom: 36px;
+  }
+
+  &__badge {
+    display: inline-block;
+    background: $primary-soft;
+    color: $primary;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    border: 1px solid $primary-border;
+    margin-bottom: 14px;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: $text-900;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  &__subtitle {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: $text-600;
+    max-width: 540px;
+    line-height: 1.65;
+  }
+
+  // ─── Layout ────────────────────────────────────────────
+  &__layout {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  // ─── Sidebar ───────────────────────────────────────────
+  &__sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: $radius-xl;
+    padding: 28px 24px;
+    position: sticky;
+    top: 24px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      position: static;
+    }
+  }
+
+  &__sidebar-heading {
+  font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $text-400;
+    margin-bottom: 4px;
+  }
+
+  &__sidebar-sub {
+    font-size: 0.775rem;
+    color: $text-400;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  &__steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding-bottom: 4px;
+
+    &-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    &-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: $bg;
+      border: 1.5px solid $border-dark;
+      color: $text-400;
+      font-size: 0.78rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    &-connector {
+      width: 1.5px;
+      flex: 1;
+      min-height: 28px;
+      background: $border;
+      margin: 4px 0;
+    }
+
+    &-body {
+      display: flex;
+      flex-direction: column;
+      padding-top: 5px;
+      padding-bottom: 28px;
+    }
+
+    &-label {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: $text-600;
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+
+  font-family: "Poppins", sans-serif;
+    &-hint {
+      font-size: 0.75rem;
+      color: $text-400;
+      margin-top: 2px;
+    }
+
+    &--active {
+      .ann__step-num {
+        background: $primary;
+        border-color: $primary;
+        color: #fff;
+      }
+      .ann__step-label {
+        color: $text-900;
+      }
+    }
+
+    &--done {
+      .ann__step-num {
+        background: $primary-soft;
+        border-color: $primary-border;
+        color: $primary;
+      }
+      .ann__step-connector {
+        background: $primary-border;
+      }
+      .ann__step-label {
+        color: $text-600;
+      }
+    }
+  }
+
+  // ─── Panel ─────────────────────────────────────────────
+  &__panel {
+    flex: 1;
+  font-family: "Poppins", sans-serif;
+    min-width: 0;
+  }
+
+  &__card {
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: $radius-xl;
+    padding: 40px 44px;
+
+    @media (max-width: 600px) {
+      padding: 24px 20px;
+    }
+  }
+
+  &__card-head {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $border;
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+  font-family: "Poppins", sans-serif;
+      color: $text-900;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: 0.83rem;
+      color: $text-600;
+      line-height: 1.6;
+    }
+  }
+
+  // ─── Category Grid ─────────────────────────────────────
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 36px;
+
+    @media (max-width: 700px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 440px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__cat {
+    position: relative;
+    background: $surface;
+    border: 1.5px solid $border;
+  font-family: "Poppins", sans-serif;
+    border-radius: $radius-lg;
+    padding: 20px 18px 18px;
+    text-align: left;
+    cursor: pointer;
+    transition:
+      border-color 0.2s,
+      background 0.2s,
+      transform 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &:hover {
+      border-color: $primary-border;
+      background: $primary-soft;
+      transform: translateY(-1px);
+    }
+
+    &--active {
+      border-color: $primary;
+      background: $primary-soft;
+    }
+
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: $bg;
+      border-radius: $radius-md;
+      color: $primary;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+      border: 1px solid $border;
+      transition:
+        background 0.2s,
+        border-color 0.2s;
+
+      .ann__cat--active & {
+        background: $primary-soft;
+        border-color: $primary-border;
+      }
+    }
+
+    &-name {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: $text-900;
+      line-height: 1.3;
+    }
+
+    &-desc {
+      font-size: 0.74rem;
+      color: $text-400;
+      line-height: 1.5;
+    }
+
+    &-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: $primary;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  // ─── Form ──────────────────────────────────────────────
+  &__field {
+    margin-bottom: 20px;
+
+    > label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $text-900;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      height: 44px;
+      border: 1.5px solid $border;
+      border-radius: $radius-md;
+      padding: 0 14px;
+      font-size: 0.875rem;
+      font-family: "Poppins", sans-serif;
+      color: $text-900;
+      background: $surface;
+      outline: none;
+      transition: border-color 0.2s;
+
+      &::placeholder {
+        color: $text-400;
+      }
+      &:focus {
+        border-color: $primary;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      border: 1.5px solid $border;
+      border-radius: $radius-md;
+      padding: 12px 14px;
+      font-size: 0.875rem;
+      font-family: "Poppins", sans-serif;
+      color: $text-900;
+      background: $surface;
+      outline: none;
+      resize: vertical;
+      line-height: 1.6;
+      transition: border-color 0.2s;
+
+      &::placeholder {
+        color: $text-400;
+      }
+      &:focus {
+        border-color: $primary;
+      }
+    }
+
+    .ann__input--error {
+      border-color: $error !important;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @media (max-width: 520px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__error {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: $error;
+    font-size: 0.74rem;
+    font-weight: 500;
+    margin-top: 6px;
+  }
+
+  // Select
+  &__select {
+    position: relative;
+
+    select {
+      width: 100%;
+      height: 44px;
+      border: 1.5px solid $border;
+      border-radius: $radius-md;
+      padding: 0 36px 0 14px;
+      font-size: 0.875rem;
+      font-family: "Poppins", sans-serif;
+      color: $text-900;
+      background: $surface;
+      appearance: none;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.2s;
+
+      &:focus {
+        border-color: $primary;
+      }
+    }
+
+    &-chevron {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $text-400;
+      pointer-events: none;
+    }
+  }
+
+  // Price
+  &__price-wrap {
+    position: relative;
+
+    .ann__currency {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: $text-600;
+    }
+
+    input {
+      padding-left: 28px !important;
+    }
+  }
+
+  // Qty
+  &__qty {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid $border;
+    border-radius: $radius-md;
+    overflow: hidden;
+    height: 44px;
+    width: fit-content;
+
+    button {
+      width: 40px;
+      height: 100%;
+      border: none;
+      background: $bg;
+      color: $text-600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition:
+        background 0.15s,
+        color 0.15s;
+      flex-shrink: 0;
+
+      &:hover {
+        background: $primary-soft;
+        color: $primary;
+      }
+    }
+
+    span {
+      min-width: 52px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: $text-900;
+      border-left: 1px solid $border;
+      border-right: 1px solid $border;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  // Radio
+  &__radio-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  &__radio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1.5px solid $border;
+    border-radius: $radius-md;
+    font-size: 0.83rem;
+    font-weight: 500;
+    color: $text-600;
+    cursor: pointer;
+    user-select: none;
+    transition:
+      border-color 0.2s,
+      background 0.2s,
+      color 0.2s;
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    &-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid $border-dark;
+      flex-shrink: 0;
+      position: relative;
+      transition: border-color 0.2s;
+
+      &::after {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: $primary;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.2s ease;
+      }
+    }
+
+    &:hover {
+      border-color: $primary-border;
+    }
+
+    &--active {
+      border-color: $primary;
+      background: $primary-soft;
+      color: $text-900;
+
+      .ann__radio-dot {
+        border-color: $primary;
+        &::after {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+    }
+  }
+
+  // Checkbox
+  &__checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: $text-900;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 10px;
+  }
+
+  &__checkbox-box {
+    width: 18px;
+    height: 18px;
+    border: 2px solid $border-dark;
+    border-radius: $radius-sm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition:
+      background 0.2s,
+      border-color 0.2s;
+    color: #fff;
+
+    .ann__checkbox-label--active & {
+      background: $primary;
+      border-color: $primary;
+    }
+  }
+
+  &__warranty {
+    width: 100%;
+    height: 44px;
+    border: 1.5px solid $border;
+    border-radius: $radius-md;
+    padding: 0 14px;
+    font-size: 0.875rem;
+    font-family: "Poppins", sans-serif;
+    color: $text-900;
+    outline: none;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+      color: $text-400;
+    }
+    &:focus {
+      border-color: $primary;
+    }
+  }
+
+  // ─── Dropzone ──────────────────────────────────────────
+  &__drop {
+    border: 2px dashed $border;
+    border-radius: $radius-lg;
+    padding: 44px 36px;
+    text-align: center;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition:
+      border-color 0.2s,
+      background 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    &:hover,
+    &--over {
+      border-color: $primary;
+      background: $primary-soft;
+    }
+
+    &-icon {
+      font-size: 2.2rem;
+      color: $primary;
+      margin-bottom: 8px;
+    }
+
+    &-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: $text-900;
+    }
+
+    &-sub {
+      font-size: 0.78rem;
+      color: $text-400;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__img-slots {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  &__img-slot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1.5px solid $border;
+    border-radius: $radius-md;
+    padding: 9px 18px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: $text-400;
+    background: $bg;
+    cursor: pointer;
+    transition: border-color 0.2s;
+
+    &:hover {
+      border-color: $primary-border;
+      color: $primary;
+    }
+  }
+
+  // ─── Actions ───────────────────────────────────────────
+  &__actions {
+    display: flex;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid $border;
+
+    &--end {
+      justify-content: flex-end;
+    }
+    &--between {
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  // ─── Buttons ───────────────────────────────────────────
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 24px;
+    height: 44px;
+    border-radius: $radius-md;
+    font-size: 0.875rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition:
+      background 0.2s,
+      color 0.2s,
+      transform 0.12s;
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    &--primary {
+      background: $primary;
+      color: #fff;
+
+      &:hover:not(:disabled) {
+        background: $primary-dark;
+      }
+
+      &:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+    }
+
+    &--ghost {
+      background: transparent;
+      color: $text-600;
+      border: 1.5px solid $border;
+
+      &:hover {
+        border-color: $border-dark;
+        color: $text-900;
+        background: $bg;
+      }
+    }
+
+    &--outline {
+      background: $surface;
+      color: $text-600;
+      border: 1.5px solid $border;
+      height: 38px;
+      padding: 0 18px;
+      font-size: 0.8rem;
+
+      &:hover {
+        border-color: $primary;
+        color: $primary;
+      }
+    }
+  }
+}
