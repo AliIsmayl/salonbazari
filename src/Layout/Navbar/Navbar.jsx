@@ -94,7 +94,7 @@ function Navbar() {
             <span>Daxil ol</span>
           </a>
 
-          <a href="/post-ad" className="navbar__post-btn">
+          <a href="/announcement" className="navbar__post-btn">
             <span className="navbar__post-btn-plus">+</span> Elan yerləşdir
           </a>
 
@@ -212,7 +212,7 @@ function Navbar() {
           Daxil ol
         </a>
         <a
-          href="/post-ad"
+          href="/announcement"
           className="navbar__post-btn navbar__post-btn--mobile"
         >
           <span className="navbar__post-btn-plus">+</span> Elan yerləşdir
