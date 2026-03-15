@@ -1,0 +1,545 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+// ── Tokens ──────────────────────────────────────────────────
+$primary: #b5096a;
+$primary-mid: #d0148c;
+$primary-light: #e91ea0;
+$badge-green: #0cb68c;
+$text-900: #111827;
+$text-600: #4b5563;
+$text-400: #9ca3af;
+$border: #e5e7eb;
+$surface: #ffffff;
+$bg: #f8f9fb;
+$radius-card: 16px;
+$radius-sm: 8px;
+
+$trans: 0.18s ease;
+
+// ── Reset / Base ─────────────────────────────────────────────
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.vm {
+  font-family: "Poppins", sans-serif;
+  background: $bg;
+  color: $text-900;
+  min-height: 100vh;
+}
+
+// ── Shared container ──────────────────────────────────────────
+.vm__container {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 80px;
+
+  @media (max-width: 1100px) {
+    padding: 0 40px;
+  }
+  @media (max-width: 600px) {
+    padding: 0 20px;
+  }
+}
+
+// ── Section head ──────────────────────────────────────────────
+.vm-section-head {
+  text-align: center;
+  margin-bottom: 40px;
+
+  &__title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    color: $text-900;
+  }
+
+  &__sub {
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    color: $text-400;
+  }
+}
+
+// ── Vacancies section ─────────────────────────────────────────
+.vm-vacancies {
+  padding: 64px 0 56px;
+}
+
+// ── Cards grid ───────────────────────────────────────────────
+.vm-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 580px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Single card ───────────────────────────────────────────────
+.vm-card {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-card;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition:
+    transform $trans;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &__top {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__badge {
+    background: $badge-green;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  &__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: $text-900;
+    line-height: 1.3;
+  }
+
+  &__desc {
+    font-size: 13px;
+    font-weight: 400;
+    color: $text-600;
+    line-height: 1.6;
+  }
+
+  &__meta {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 2px 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 400;
+      color: $text-600;
+
+      svg {
+        flex-shrink: 0;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__divider {
+    height: 1px;
+    background: $border;
+    margin: 2px 0;
+  }
+
+  &__req-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: $text-900;
+  }
+
+  &__reqs {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13px;
+      font-weight: 400;
+      color: $text-600;
+    }
+  }
+
+  &__check {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: lighten($primary-light, 32%);
+    flex-shrink: 0;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l3 3 5-6' stroke='%23b5096a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+        center / 10px no-repeat;
+    }
+  }
+
+  &__btn {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 11px 0;
+    background: linear-gradient(135deg, $primary 0%, $primary-light 100%);
+    color: #fff;
+    border: none;
+    border-radius: $radius-sm;
+    font-family: "Poppins", sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.2px;
+    transition:
+      opacity $trans,
+      transform $trans;
+
+    &:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// ── Why us section ────────────────────────────────────────────
+.vm-why {
+  background: $surface;
+  border-top: 1px solid $border;
+  padding: 64px 0 72px;
+}
+
+.vm-why__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.vm-why__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 28px 20px;
+  border: 1px solid $border;
+  border-radius: $radius-card;
+  background: $bg;
+  transition:
+    transform $trans;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.vm-why__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    lighten($primary-light, 30%) 0%,
+    lighten($primary, 36%) 100%
+  );
+  color: $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vm-why__item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-900;
+}
+
+.vm-why__item-desc {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: $text-400;
+  line-height: 1.55;
+}
+
+// ── Overlay ───────────────────────────────────────────────────
+.vm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 20px;
+  animation: vmFadeIn 0.18s ease;
+}
+
+@keyframes vmFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// ── Modal ─────────────────────────────────────────────────────
+.vm-modal {
+  background: $surface;
+  border-radius: 20px;
+  padding: 32px;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: vmSlideUp 0.22s ease;
+
+  @media (max-width: 520px) {
+    padding: 24px 18px;
+  }
+
+  &__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: $text-900;
+  }
+
+  &__subtitle {
+    margin-top: 3px;
+    font-size: 13px;
+    font-weight: 400;
+    color: $text-400;
+  }
+
+  &__x {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid $border;
+    background: transparent;
+    cursor: pointer;
+    color: $text-600;
+    flex-shrink: 0;
+    transition:
+      background $trans,
+      color $trans;
+
+    &:hover {
+      background: $bg;
+      color: $text-900;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label {
+      font-size: 13px;
+      font-weight: 500;
+      color: $text-900;
+    }
+
+    input,
+    textarea {
+      font-family: "Poppins", sans-serif;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: $text-900;
+      border: 1.5px solid $border;
+      border-radius: $radius-sm;
+      padding: 10px 14px;
+      outline: none;
+      background: $bg;
+      transition:
+        border-color $trans,
+        background $trans;
+
+      &::placeholder {
+        color: $text-400;
+      }
+      &:focus {
+        border-color: $primary;
+        background: $surface;
+      }
+    }
+
+    textarea {
+      resize: none;
+      min-height: 88px;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__file {
+    display: flex;
+    align-items: stretch;
+    border: 1.5px solid $border;
+    border-radius: $radius-sm;
+    background: $bg;
+    overflow: hidden;
+    transition: border-color $trans;
+
+    &:focus-within {
+      border-color: $primary;
+    }
+  }
+
+  &__file-name {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 13px;
+    color: $text-400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__file-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 14px;
+    background: $border;
+    color: $text-900;
+    font-family: "Poppins", sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background $trans;
+
+    &:hover {
+      background: darken($border, 6%);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 4px;
+  }
+
+  &__cancel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border: 1.5px solid $border;
+    border-radius: $radius-sm;
+    background: transparent;
+    font-family: "Poppins", sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: $text-600;
+    cursor: pointer;
+    transition:
+      border-color $trans,
+      color $trans,
+      background $trans;
+
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+      background: lighten($primary-light, 34%);
+    }
+  }
+
+  &__submit {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 26px;
+    background: linear-gradient(135deg, $primary, $primary-light);
+    color: #fff;
+    border: none;
+    border-radius: $radius-sm;
+    font-family: "Poppins", sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      opacity $trans,
+      transform $trans;
+
+    &:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+@keyframes vmSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

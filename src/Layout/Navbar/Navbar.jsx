@@ -73,7 +73,7 @@ function Navbar() {
             <a href="/mehsullar">Məhsullar</a>
           </li>
           <li>
-            <a href="/vakansiyalar">Vakansiyalar</a>
+            <a href="/vacancy">Vakansiyalar</a>
           </li>
         </ul>
 
@@ -188,7 +188,7 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a href="/vakansiyalar" onClick={() => setMenuOpen(false)}>
+            <a href="/vacancy" onClick={() => setMenuOpen(false)}>
               Vakansiyalar
             </a>
           </li>

@@ -16,6 +16,7 @@ import AboutPage from "./Pages/AboutPage";
 import ShopPage from "./Pages/ShopPage";
 import LoginPage from "./Pages/LoginPage";
 import AnnouncementPage from "./Pages/AnnouncementPage";
+import VacancyPage from "./Pages/VacancyPage";
 
 const NO_LAYOUT = ["/every","/login","/register","/forgot",];
 
@@ -44,7 +45,8 @@ const AppContent = () => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/forgot" element={<ForgotPage />} />
         <Route path="/about" element={<AboutPage />} />
-        {/* <Route path="/announcement" element={<AnnouncementPage />} /> */}
+        {/* <Route path="/vacancy" element={<VacancyPage />} /> */}
+        <Route path="/announcement" element={<AnnouncementPage />} />
         {/* <Route path="/shop" element={<ShopPage />} /> */}
         <Route path="/every" element={<Navigate to="/" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
