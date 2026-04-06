@@ -7,10 +7,9 @@
   width: 100%;
   max-width: 720px;
   margin: 0 auto;
-  padding: 16px 20px;
+  padding: 8px 20px;
   font-family: "Poppins", sans-serif;
 
-  // --- Form ---
   &__form {
     display: flex;
     align-items: center;
@@ -20,6 +19,7 @@
     background: #fff;
     overflow: hidden;
     transition: border-color 0.25s ease;
+      border-color: #d63384;
 
     &--focused,
     &:focus-within {

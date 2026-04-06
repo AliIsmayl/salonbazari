@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Product.scss";
-import { FiMapPin } from "react-icons/fi";
+import { FiShoppingCart, FiHeart } from "react-icons/fi";
 import image1 from "../../../Image/product1.png";
 import image2 from "../../../Image/product2.png";
 import image3 from "../../../Image/product3.png";
@@ -15,47 +15,47 @@ const BADGE_STYLES = {
 const PRODUCTS = [
   {
     id: 1,
-    badge: "İkinci əl",
+    badge: "Yeni",
     image: image1,
-    name: "Saxara Gözəllik Salonu",
-    desc: "Damascus Steel, Yaponiya",
-    shop: "Golden Scissors Shop",
-    price: "99 AZN",
+    brand: "The Ceel",
+    name: "Saç tökülməsinə qarşı 3-lü saç baxım seti",
+    price: "98 AZN",
+    oldPrice: null,
     href: "/product/1",
   },
   {
     id: 2,
-    badge: "Az qalıb",
+    badge: "Yeni",
     image: image2,
-    name: "Saxara Gözəllik Salonu",
-    desc: "Professional qoruyucu",
-    shop: "Loreal Shop",
-    price: "99 AZN",
+    brand: "Sigma Beauty",
+    name: "Gloss-Absolu Frizz– Glaze istiyə qarşı qoruyucu krem",
+    price: "58 AZN",
+    oldPrice: null,
     href: "/product/2",
   },
   {
     id: 3,
     badge: "Endirim",
     image: image3,
-    name: "Professional Fen Set",
-    desc: "Az işlənmiş, Almaniya",
-    shop: "Master Ali",
-    price: "99 AZN",
+    brand: "ScissorTech",
+    name: "Matsui Rose Gold Alchei Mountain saç baxım qayçısı",
+    price: "532 AZN",
+    oldPrice: "564 AZN",
     href: "/product/3",
   },
   {
     id: 4,
-    badge: "Yeni",
+    badge: "Endirim",
     image: image1,
-    name: "Saxara Gözəllik Salonu",
-    desc: "Turbo power, İtaliya",
-    shop: "Loreal Shop",
-    price: "99 AZN",
+    brand: "Sigma Beauty",
+    name: "Essential Trio Brush Set – Göz və Üz Üçün",
+    price: "132 AZN",
+    oldPrice: "164 AZN",
     href: "/product/4",
   },
 ];
 
-// --- Reusable SectionHeader ---
+// --- SectionHeader ---
 function SectionHeader({ title, subtitle, href }) {
   const [hovered, setHovered] = useState(false);
 
@@ -78,13 +78,17 @@ function SectionHeader({ title, subtitle, href }) {
   );
 }
 
-function ProductCard({ badge, image, name, desc, shop, price, href }) {
+// --- ProductCard ---
+function ProductCard({ badge, image, brand, name, price, oldPrice, href }) {
+  const [liked, setLiked] = useState(false);
   const badgeStyle = BADGE_STYLES[badge] || BADGE_STYLES["Yeni"];
 
   return (
     <div className="product-card">
+      {/* Image */}
       <div className="product-card__image-wrap">
         <img src={image} alt={name} className="product-card__image" />
+
         {badge && (
           <span
             className="product-card__badge"
@@ -93,32 +97,44 @@ function ProductCard({ badge, image, name, desc, shop, price, href }) {
             {badge}
           </span>
         )}
+
+        <button
+          className={`product-card__wishlist ${liked ? "product-card__wishlist--active" : ""}`}
+          onClick={() => setLiked((prev) => !prev)}
+          aria-label="Sevimlilərə əlavə et"
+        >
+          <FiHeart />
+        </button>
       </div>
 
+      {/* Body */}
       <div className="product-card__body">
+        <p className="product-card__brand">{brand}</p>
         <h3 className="product-card__name">{name}</h3>
-        <p className="product-card__desc">{desc}</p>
-        <div className="product-card__shop">
-          <FiMapPin className="product-card__shop-icon" />
-          <span>{shop}</span>
-        </div>
-        <p className="product-card__price">{price}</p>
       </div>
 
+      {/* Footer — qiymət sol, buton sağ */}
       <div className="product-card__footer">
-        <a href={href} className="product-card__btn">
-          Ətraflı bax
+        <div className="product-card__pricing">
+          <span className="product-card__price">{price}</span>
+          {oldPrice && (
+            <span className="product-card__old-price">{oldPrice}</span>
+          )}
+        </div>
+
+        <a href={href} className="product-card__btn" aria-label="Əlavə et">
+          Əlavə et <FiShoppingCart className="product-card__btn-icon" />
         </a>
       </div>
     </div>
   );
 }
 
+// --- Product Section ---
 function Product() {
   return (
     <section className="product">
       <div className="product__container">
-        {/* Header */}
         <SectionHeader
           title="Bazardakı məhsullar"
           subtitle="Seçilmiş professional gözəllik məhsulları"

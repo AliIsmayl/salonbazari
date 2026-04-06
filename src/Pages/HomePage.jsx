@@ -18,7 +18,7 @@ function HomePage() {
       <FiveBox />
       <Product />
       <Shop />
-      <Activate />
+      {/* <Activate /> */}
       <Announcement />
       <Career />
       <Selling />

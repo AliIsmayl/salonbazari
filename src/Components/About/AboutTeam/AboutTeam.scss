@@ -23,7 +23,6 @@
     align-items: center;
     gap: 40px;
     padding: 0 20px;
-
   }
 
   &__title {
@@ -41,7 +40,6 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
-    justify-items: center;
     width: 100%;
 
     @media (max-width: 1024px) {
@@ -50,24 +48,44 @@
     }
 
     @media (max-width: 576px) {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: 1fr;
     }
   }
 
+  // ─── Card ───────────────────────────────
   &__card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1.5px solid #f0f0f0;
+    background: #fff;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+
+      .about-team__overlay {
+        opacity: 1;
+      }
+
+      .about-team__photo {
+        transform: scale(1.04);
+      }
+    }
   }
 
+  // ─── Photo + Overlay ────────────────────
   &__photo-wrapper {
+    position: relative;
     width: 100%;
-    aspect-ratio: 3 / 4;
-    border-radius: 16px;
+    aspect-ratio: 3 / 3.2;
     overflow: hidden;
-    background-color: #f0f0f0;
+    background-color: #e8dff0;
   }
 
   &__photo {
@@ -76,19 +94,96 @@
     object-fit: cover;
     object-position: top;
     display: block;
+    transition: transform 0.4s ease;
+  }
+
+  // Hover overlay
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(160, 100, 200, 0.15) 0%,
+      rgba(130, 60, 180, 0.65) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &__overlay-desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    line-height: 1.6;
+    margin: 0;
+
+    @media (max-width: 576px) {
+      font-size: 13px;
+    }
+  }
+
+  &__linkedin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    text-decoration: none;
+    transition:
+      background 0.2s,
+      transform 0.2s;
+    backdrop-filter: blur(4px);
+
+    svg {
+      font-size: 18px;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(1.1);
+    }
+  }
+
+  // ─── Info (ad, vəzifə) ──────────────────
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 16px 18px;
+    background: #fff;
   }
 
   &__role {
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     color: #1a1a1a;
-    margin: 4px 0 0;
+    margin: 0;
+
+    @media (max-width: 576px) {
+      font-size: 15px;
+    }
   }
 
   &__name {
     font-size: 14px;
     font-weight: 400;
-    color: #666;
+    color: #888;
     margin: 0;
+
+    @media (max-width: 576px) {
+      font-size: 13px;
+    }
   }
 }

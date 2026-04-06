@@ -41,9 +41,7 @@ function HomeHeader() {
       </div>
 
       <div className="home-header__content">
-        <span className="home-header__badge" ref={badgeRef}>
-          Professional Alətlər
-        </span>
+     
 
         <h1 className="home-header__title" ref={titleRef}>
           Güc və Stilin Mükəmməl Uyğunluğu

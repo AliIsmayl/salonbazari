@@ -52,15 +52,7 @@ function SectionHeader({ title, subtitle, href }) {
         <h2 className="section-header__title">{title}</h2>
         <p className="section-header__subtitle">{subtitle}</p>
       </div>
-      <a
-        href={href}
-        className={`section-header__btn ${hovered ? "section-header__btn--hovered" : ""}`}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
-        Hamısına bax
-        <span className="section-header__btn-icon">{hovered ? "↘" : "↗"}</span>
-      </a>
+   
     </div>
   );
 }
@@ -70,11 +62,11 @@ function FiveBox() {
     <section className="five-box">
       <div className="five-box__container">
         {/* Header */}
-        <SectionHeader
+        {/* <SectionHeader
           title="Gözəllik bazarı"
           subtitle="Peşəkar alətlər, avadanlıqlar və kosmetik vasaitlər"
           href="/bazar"
-        />
+        /> */}
 
         {/* Cards */}
         <div className="five-box__grid">

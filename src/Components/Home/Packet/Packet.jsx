@@ -93,7 +93,7 @@ function Packet() {
               Biznesinizi böyütmək üçün sizə uyğun paketi seçin.
             </p>
           </div>
-          <a
+          {/* <a
             href="/paketler"
             className={`packet__view-btn ${hovered ? 'packet__view-btn--hovered' : ''}`}
             onMouseEnter={() => setHovered(true)}
@@ -101,7 +101,7 @@ function Packet() {
           >
             Hamısına bax
             <span className="packet__view-btn-icon">{hovered ? '↗' : '↘'}</span>
-          </a>
+          </a> */}
         </div>
 
         {/* Grid */}

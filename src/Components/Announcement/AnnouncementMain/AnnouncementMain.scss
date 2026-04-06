@@ -116,7 +116,7 @@ $radius-sm: 6px;
   }
 
   &__sidebar-heading {
-  font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -191,7 +191,7 @@ $radius-sm: 6px;
       transition: color 0.2s;
     }
 
-  font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
     &-hint {
       font-size: 0.75rem;
       color: $text-400;
@@ -227,7 +227,7 @@ $radius-sm: 6px;
   // ─── Panel ─────────────────────────────────────────────
   &__panel {
     flex: 1;
-  font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
     min-width: 0;
   }
 
@@ -244,14 +244,12 @@ $radius-sm: 6px;
 
   &__card-head {
     margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid $border;
 
     h2 {
       font-size: 1.25rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-  font-family: "Poppins", sans-serif;
+      font-family: "Poppins", sans-serif;
       color: $text-900;
       margin-bottom: 6px;
     }
@@ -282,7 +280,7 @@ $radius-sm: 6px;
     position: relative;
     background: $surface;
     border: 1.5px solid $border;
-  font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
     border-radius: $radius-lg;
     padding: 20px 18px 18px;
     text-align: left;
@@ -608,7 +606,7 @@ $radius-sm: 6px;
 
   // Checkbox
   &__checkbox-label {
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: 10px;
     font-size: 0.84rem;

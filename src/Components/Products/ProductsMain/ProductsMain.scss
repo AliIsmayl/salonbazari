@@ -1,0 +1,463 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+// ── Tokens ───────────────────────────────────────────────────
+$P: #b5096a;
+$PL: #e91ea0;
+$PPALE: #fdf0f7;
+$GREEN: #0cb68c;
+$T9: #111827;
+$T6: #4b5563;
+$T4: #9ca3af;
+$BDR: #e5e7eb;
+$SRF: #ffffff;
+$BG: #f8f9fb;
+$RC: 14px;
+$RS: 8px;
+$TR: 0.17s ease;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.pm {
+  font-family: "Poppins", sans-serif;
+  background: $BG;
+  color: $T9;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.pm__wrap {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+  @media (max-width: 900px) {
+    padding: 0 20px;
+  }
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.pm-hd {
+  padding: 36px 0 22px;
+  &__title {
+    font-size: 21px;
+    font-weight: 700;
+    color: $T9;
+    letter-spacing: -0.3px;
+  }
+  &__sub {
+    margin-top: 4px;
+    font-size: 12.5px;
+    color: $T4;
+    font-weight: 400;
+  }
+}
+
+/* ── Filter box ─────────────────────────────────────────────── */
+.pm-fb {
+  background: $SRF;
+  border: 1px solid $BDR;
+  border-radius: $RS;
+  padding: 0 16px;
+  margin-bottom: 18px;
+
+  &__row {
+    display: flex;
+    align-items: stretch;
+    min-height: 64px;
+  }
+
+  &__sep {
+    width: 1px;
+    background: $BDR;
+    align-self: stretch;
+    flex-shrink: 0;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    padding-left: 16px;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 22px;
+    background: linear-gradient(135deg, $P, $PL);
+    color: #fff;
+    border: none;
+    border-radius: $RS;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+      opacity $TR,
+      transform $TR;
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid $BDR;
+    border-radius: $RS;
+    background: $BG;
+    color: $T6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition:
+      border-color $TR,
+      color $TR;
+    &:hover {
+      border-color: $P;
+      color: $P;
+    }
+  }
+}
+
+/* ── Select ─────────────────────────────────────────────────── */
+.pms {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px 0 16px;
+  min-width: 140px;
+
+  &__label {
+    font-size: 11px;
+    font-weight: 600;
+    color: $T9;
+    letter-spacing: 0.1px;
+    margin-bottom: 3px;
+    display: block;
+  }
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 12.5px;
+    color: $T4;
+    cursor: pointer;
+    text-align: left;
+    white-space: nowrap;
+
+    svg {
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+  }
+
+  &__val {
+    color: $T6;
+  }
+  &__ph {
+    color: $T4;
+  }
+
+  &--open &__trigger svg {
+    transform: rotate(180deg);
+  }
+
+  &__bd {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+  }
+
+  &__menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 170px;
+    background: $SRF;
+    border: 1.5px solid $BDR;
+    border-radius: $RS;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+    list-style: none;
+    z-index: 100;
+    overflow: hidden;
+  }
+
+  &__item {
+    padding: 9px 16px;
+    font-size: 13px;
+    color: $T6;
+    cursor: pointer;
+    transition:
+      background $TR,
+      color $TR;
+    &:hover {
+      background: $BG;
+      color: $T9;
+    }
+    &--on {
+      background: $PPALE;
+      color: $P;
+      font-weight: 500;
+    }
+  }
+}
+
+/* ── Toolbar ────────────────────────────────────────────────── */
+.pm-tb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+
+  &__count {
+    font-size: 13px;
+    color: $T6;
+    strong {
+      font-weight: 600;
+      color: $T9;
+    }
+  }
+
+  &__sort {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "Poppins", sans-serif;
+    font-size: 12.5px;
+    color: $T6;
+    background: $SRF;
+    border: 1px solid $BDR;
+    border-radius: $RS;
+    padding: 7px 12px;
+    cursor: pointer;
+    transition: border-color $TR;
+    &:hover {
+      border-color: darken($BDR, 10%);
+    }
+  }
+}
+
+/* ── Grid ───────────────────────────────────────────────────── */
+.pm-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+
+  @media (max-width: 860px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Card ───────────────────────────────────────────────────── */
+.pm-card {
+  background: $SRF;
+  border: 1px solid $BDR;
+  border-radius: $RC;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform $TR,
+    box-shadow $TR;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.07);
+  }
+
+  /* image area */
+  &__img-box {
+    position: relative;
+    height: 210px;
+    background: #f0f0f0;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.32s ease;
+  }
+
+  &:hover &__img {
+    transform: scale(1.04);
+  }
+
+  /* tag stack top-left */
+  &__tags {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 2;
+  }
+
+  &__tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+    letter-spacing: 0.2px;
+    line-height: 1.4;
+
+    &--sale {
+      background: $P;
+      color: #fff;
+    }
+
+    &--new {
+      background: $GREEN;
+      color: #fff;
+    }
+  }
+
+  /* heart top-right */
+  &__heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: $SRF;
+    border: 1px solid $BDR;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: $T4;
+    z-index: 2;
+    transition:
+      color $TR,
+      border-color $TR,
+      background $TR;
+
+    &:hover {
+      color: $P;
+      border-color: $P;
+    }
+    &--on {
+      color: $P;
+      border-color: $P;
+      background: $PPALE;
+    }
+  }
+
+  /* body */
+  &__body {
+    padding: 13px 15px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+  }
+
+  &__brand {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: $P;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: $T9;
+    line-height: 1.38;
+    margin-top: 1px;
+  }
+
+  &__desc {
+    font-size: 12px;
+    color: $T4;
+    line-height: 1.55;
+    margin-top: 3px;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  &__prices {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  &__price {
+    font-size: 16px;
+    font-weight: 700;
+    color: $P;
+  }
+
+  &__old {
+    font-size: 11.5px;
+    color: $T4;
+    text-decoration: line-through;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 13px;
+    background: linear-gradient(135deg, $P, $PL);
+    color: #fff;
+    border: none;
+    border-radius: $RS;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+      opacity $TR,
+      transform $TR;
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
